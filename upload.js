@@ -103,46 +103,46 @@ function createCard(image) {
   description.innerText = image.description;
   card.appendChild(description);
 
-  const editButton = document.createElement('button');
-  editButton.innerText = 'Edit';
-  editButton.addEventListener('click', function() {
-    editImage(image);
-  });
-  card.appendChild(editButton);
+//   const editButton = document.createElement('button');
+//   editButton.innerText = 'Edit';
+//   editButton.addEventListener('click', function() {
+//     editImage(image);
+//   });
+//   card.appendChild(editButton);
 
-  const deleteButton = document.createElement('button');
-  deleteButton.innerText = 'Delete';
-  deleteButton.addEventListener('click', function() {
-    deleteImage(image);
-  });
-  card.appendChild(deleteButton);
+//   const deleteButton = document.createElement('button');
+//   deleteButton.innerText = 'Delete';
+//   deleteButton.addEventListener('click', function() {
+//     deleteImage(image);
+//   });
+//   card.appendChild(deleteButton);
 
   return card;
 }
 
-// Edit an image
-function editImage(image) {
-  const newName = prompt('Enter a new name:', image.name);
-  if (newName !== null) {
-    const newDescription = prompt('Enter a new description:', image.description);
-    if (newDescription !== null) {
-      image.name = newName;
-      image.description = newDescription;
-      saveImagesToLocalStorage();
-      displayImages();
-    }
-  }
-}
+// // Edit an image
+// function editImage(image) {
+//   const newName = prompt('Enter a new name:', image.name);
+//   if (newName !== null) {
+//     const newDescription = prompt('Enter a new description:', image.description);
+//     if (newDescription !== null) {
+//       image.name = newName;
+//       image.description = newDescription;
+//       saveImagesToLocalStorage();
+//       displayImages();
+//     }
+//   }
+// }
 
-// Delete an image
-function deleteImage(image) {
-  const confirmDelete = confirm('Are you sure you want to delete this image?');
-  if (confirmDelete) {
-    images = images.filter(img => img !== image);
-    saveImagesToLocalStorage();
-    displayImages();
-  }
-}
+// // Delete an image
+// function deleteImage(image) {
+//   const confirmDelete = confirm('Are you sure you want to delete this image?');
+//   if (confirmDelete) {
+//     images = images.filter(img => img !== image);
+//     saveImagesToLocalStorage();
+//     displayImages();
+//   }
+// }
 
 // Clear the form inputs
 function clearForm() {

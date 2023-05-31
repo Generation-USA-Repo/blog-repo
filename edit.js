@@ -7,30 +7,7 @@ const imageInput = document.getElementById('image-input');
 const nameInput = document.getElementById('name-input');
 const descriptionInput = document.getElementById('description-input');
 
-// Add form submission event listener
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const file = imageInput.files[0];
-  const name = nameInput.value;
-  const description = descriptionInput.value;
 
-  const reader = new FileReader();
-  reader.onload = function(event) {
-    const imageData = event.target.result;
-    const image = {
-      name: name,
-      description: description,
-      data: imageData
-    };
-    images.push(image);
-    saveImagesToLocalStorage();
-    displayImages();
-    clearForm();
-  };
-  
-  reader.readAsDataURL(file);
-});
 
 // Save images to localStorage
 function saveImagesToLocalStorage() {
@@ -110,12 +87,7 @@ function createCard(image) {
   });
   card.appendChild(editButton);
 
-  const deleteButton = document.createElement('button');
-  deleteButton.innerText = 'Delete';
-  deleteButton.addEventListener('click', function() {
-    deleteImage(image);
-  });
-  card.appendChild(deleteButton);
+
 
   return card;
 }
@@ -134,15 +106,6 @@ function editImage(image) {
   }
 }
 
-// Delete an image
-function deleteImage(image) {
-  const confirmDelete = confirm('Are you sure you want to delete this image?');
-  if (confirmDelete) {
-    images = images.filter(img => img !== image);
-    saveImagesToLocalStorage();
-    displayImages();
-  }
-}
 
 // Clear the form inputs
 function clearForm() {

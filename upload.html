@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <nav>
+        <ul>
+      
+          <li><a href="edit.html">Edit</a></li>
+          <li><a href="delete.html">Delete</a></li>
+          <li><a href="index2.html">Home</a></li>
+        </ul>
+      </nav>
+
+  
+  <h1>Image Gallery</h1>
+
+  <div id="form-container">
+    <h2>Upload Image</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+      <input type="file" id="image-input" accept="image/*" required>
+      <input type="text" id="name-input" placeholder="Name" required>
+      <input type="text" id="description-input" placeholder="Description" required>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+
+  <div id="gallery-container">
+    <h2>Image Gallery</h2>
+    <div id="image-gallery"></div>
+    <div id="pagination"></div>
+  </div>
+
+  <script src="upload.js"></script>
+
+    
+</body>
+</html>
