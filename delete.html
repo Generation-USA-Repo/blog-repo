@@ -4,34 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Delete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">  
 </head>
 <body>
-
-    <nav>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="edit.html">Edit</a></li>
-          <li><a href="upload.html">Upload</a></li>
-          
-        </ul>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Image Storage Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Delete <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="edit.html">Edit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="upload.html">Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   
-  <h1>Delete an Image Gallery</h1>
-
-
-
-  <div id="gallery-container">
-    <h2>Image Gallery</h2>
-    <div id="image-gallery"></div>
+  <h1>Delete a card</h1>
+  <div id="gallery-container" class="mt-2">
+    <div id="image-gallery" class="card-columns"></div>
     <div id="pagination"></div>
   </div>
 
-  <script src="delete.js"></script>
 
-    
+  <script src="delete.js"></script> 
 </body>
 </html>

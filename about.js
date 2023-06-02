@@ -56,25 +56,33 @@ function displayImages() {
   }
 }
 
+
 // Create a card for an image
 function createCard(image) {
   const card = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('card', 'mb-4');
 
   const img = document.createElement('img');
   img.src = image.data;
+  img.classList.add('card-img-top');
   card.appendChild(img);
 
-  const name = document.createElement('h3');
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  const name = document.createElement('h5');
+  name.classList.add('card-title');
   name.innerText = image.name;
-  card.appendChild(name);
+  cardBody.appendChild(name);
 
   const description = document.createElement('p');
+  description.classList.add('card-text');
   description.innerText = image.description;
-  card.appendChild(description);
+  cardBody.appendChild(description);
+
+  card.appendChild(cardBody);
   return card;
 }
-
 
 // Load saved images on page load
 document.addEventListener('DOMContentLoaded', function() {

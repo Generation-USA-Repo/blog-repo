@@ -1,11 +1,11 @@
-.card {
+/* .card {
     display: inline-block;
     width: 200px;
     height: 300px;
     margin: 10px;
     border: 1px solid #ccc;
     padding: 10px;
-  }
+  } */
   
   .card img {
     width: 100%;
@@ -13,21 +13,36 @@
     object-fit: cover;
   }
   
-  .card h3 {
+  /* .card h3 {
     font-size: 16px;
     margin-top: 10px;
-  }
+  } */
   
-  .card p {
+  /* .card p {
     font-size: 14px;
     margin-top: 5px;
-  }
+  } */
   
-  .pagination {
+  /* .pagination {
     margin-top: 20px;
-  }
+  } */
   
-  .pagination button {
+  /* .pagination button {
     margin: 0 5px;
-  }
+  } */
   
+  #gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    /* grid-gap: 20px; */
+}
+
+/* .card {
+    margin: 0;
+} */
+img{
+  padding: 5px;
+}
+#gallery-container{
+  margin: 10%;
+}

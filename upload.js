@@ -86,63 +86,51 @@ function displayImages() {
   }
 }
 
+
 // Create a card for an image
 function createCard(image) {
   const card = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('card', 'mb-4');
 
   const img = document.createElement('img');
   img.src = image.data;
+  img.classList.add('card-img-top');
   card.appendChild(img);
 
-  const name = document.createElement('h3');
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  const name = document.createElement('h5');
+  name.classList.add('card-title');
   name.innerText = image.name;
-  card.appendChild(name);
+  cardBody.appendChild(name);
 
   const description = document.createElement('p');
+  description.classList.add('card-text');
   description.innerText = image.description;
-  card.appendChild(description);
+  cardBody.appendChild(description);
 
-//   const editButton = document.createElement('button');
-//   editButton.innerText = 'Edit';
-//   editButton.addEventListener('click', function() {
-//     editImage(image);
-//   });
-//   card.appendChild(editButton);
+  // const editButton = document.createElement('button');
+  // editButton.innerText = 'Edit';
+  // editButton.classList.add('btn', 'btn-primary', 'mr-2');
+  // editButton.addEventListener('click', function() {
+  //   editImage(image);
+  // });
+  // cardBody.appendChild(editButton);
 
-//   const deleteButton = document.createElement('button');
-//   deleteButton.innerText = 'Delete';
-//   deleteButton.addEventListener('click', function() {
-//     deleteImage(image);
-//   });
-//   card.appendChild(deleteButton);
+  // const deleteButton = document.createElement('button');
+  // deleteButton.innerText = 'Delete';
+  // deleteButton.classList.add('btn', 'btn-danger');
+  // deleteButton.addEventListener('click', function() {
+  //   deleteImage(image);
+  // });
+  // cardBody.appendChild(deleteButton);
+
+  card.appendChild(cardBody);
 
   return card;
 }
 
-// // Edit an image
-// function editImage(image) {
-//   const newName = prompt('Enter a new name:', image.name);
-//   if (newName !== null) {
-//     const newDescription = prompt('Enter a new description:', image.description);
-//     if (newDescription !== null) {
-//       image.name = newName;
-//       image.description = newDescription;
-//       saveImagesToLocalStorage();
-//       displayImages();
-//     }
-//   }
-// }
-
-// // Delete an image
-// function deleteImage(image) {
-//   const confirmDelete = confirm('Are you sure you want to delete this image?');
-//   if (confirmDelete) {
-//     images = images.filter(img => img !== image);
-//     saveImagesToLocalStorage();
-//     displayImages();
-//   }
-// }
 
 // Clear the form inputs
 function clearForm() {

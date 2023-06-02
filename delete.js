@@ -7,31 +7,6 @@ const imageInput = document.getElementById('image-input');
 const nameInput = document.getElementById('name-input');
 const descriptionInput = document.getElementById('description-input');
 
-// // Add form submission event listener
-// form.addEventListener('submit', function(event) {
-//   event.preventDefault();
-  
-//   const file = imageInput.files[0];
-//   const name = nameInput.value;
-//   const description = descriptionInput.value;
-
-//   const reader = new FileReader();
-//   reader.onload = function(event) {
-//     const imageData = event.target.result;
-//     const image = {
-//       name: name,
-//       description: description,
-//       data: imageData
-//     };
-//     images.push(image);
-//     saveImagesToLocalStorage();
-//     displayImages();
-//     clearForm();
-//   };
-  
-//   reader.readAsDataURL(file);
-// });
-
 // Save images to localStorage
 function saveImagesToLocalStorage() {
   localStorage.setItem('images', JSON.stringify(images));
@@ -89,50 +64,40 @@ function displayImages() {
 // Create a card for an image
 function createCard(image) {
   const card = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('card', 'mb-4');
 
   const img = document.createElement('img');
   img.src = image.data;
+  img.classList.add('card-img-top');
   card.appendChild(img);
 
-  const name = document.createElement('h3');
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  const name = document.createElement('h5');
+  name.classList.add('card-title');
   name.innerText = image.name;
-  card.appendChild(name);
+  cardBody.appendChild(name);
 
   const description = document.createElement('p');
+  description.classList.add('card-text');
   description.innerText = image.description;
-  card.appendChild(description);
+  cardBody.appendChild(description);
 
-//   const editButton = document.createElement('button');
-//   editButton.innerText = 'Edit';
-//   editButton.addEventListener('click', function() {
-//     editImage(image);
-//   });
-//   card.appendChild(editButton);
+ 
 
   const deleteButton = document.createElement('button');
   deleteButton.innerText = 'Delete';
+  deleteButton.classList.add('btn', 'btn-danger');
   deleteButton.addEventListener('click', function() {
     deleteImage(image);
   });
-  card.appendChild(deleteButton);
+  cardBody.appendChild(deleteButton);
+
+  card.appendChild(cardBody);
 
   return card;
 }
-
-// // Edit an image
-// function editImage(image) {
-//   const newName = prompt('Enter a new name:', image.name);
-//   if (newName !== null) {
-//     const newDescription = prompt('Enter a new description:', image.description);
-//     if (newDescription !== null) {
-//       image.name = newName;
-//       image.description = newDescription;
-//       saveImagesToLocalStorage();
-//       displayImages();
-//     }
-//   }
-// }
 
 // Delete an image
 function deleteImage(image) {
