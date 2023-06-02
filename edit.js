@@ -8,7 +8,6 @@ const nameInput = document.getElementById('name-input');
 const descriptionInput = document.getElementById('description-input');
 
 
-
 // Save images to localStorage
 function saveImagesToLocalStorage() {
   localStorage.setItem('images', JSON.stringify(images));
@@ -66,31 +65,38 @@ function displayImages() {
 // Create a card for an image
 function createCard(image) {
   const card = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('card', 'mb-4');
 
   const img = document.createElement('img');
   img.src = image.data;
+  img.classList.add('card-img-top');
   card.appendChild(img);
 
-  const name = document.createElement('h3');
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  const name = document.createElement('h5');
+  name.classList.add('card-title');
   name.innerText = image.name;
-  card.appendChild(name);
+  cardBody.appendChild(name);
 
   const description = document.createElement('p');
+  description.classList.add('card-text');
   description.innerText = image.description;
-  card.appendChild(description);
+  cardBody.appendChild(description);
 
   const editButton = document.createElement('button');
   editButton.innerText = 'Edit';
+  editButton.classList.add('btn', 'btn-primary', 'mr-2');
   editButton.addEventListener('click', function() {
     editImage(image);
   });
-  card.appendChild(editButton);
+  cardBody.appendChild(editButton);
 
-
-
+  card.appendChild(cardBody);
   return card;
 }
+
 
 // Edit an image
 function editImage(image) {
